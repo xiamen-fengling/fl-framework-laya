@@ -107,7 +107,7 @@ var FLGameConfig = /** @class */ (function () {
         SWITCH_LEFT_TOP_BANNER: 3,
         LEFT_BANNER_UPDATE_TIME: 3,
         LEFT_BANNER_UPDATE_COUNT: 3,
-        //结算页显示领取炸弹(地区屏蔽)
+        //结算页显示领取炸弹
         SWITCH_SHOW_NEWBOX_BTN: 3,
         //全屏卖量2显示继续游戏时间
         SHOW_BOX2_TIME: 3,
@@ -115,7 +115,7 @@ var FLGameConfig = /** @class */ (function () {
         GAMEBOX_BTN_SHOW_TIME: 3,
         //盒⼦⻚3是否显示的开关
         GAMEBOX_SWITCH: 2,
-        //盒⼦⻚3是否显示的开关(地区屏蔽)
+        //盒⼦⻚3是否显示的开关
         SWITCH_GAMEBOX_SHOW: 3,
         //盒⼦⻚
         SWITCH_BOX_PANEL: 3,
