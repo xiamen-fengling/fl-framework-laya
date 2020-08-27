@@ -47,7 +47,7 @@ var GameBoxPage2 = /** @class */ (function (_super) {
     GameBoxPage2.prototype.onClose = function (e) {
         e.stopPropagation();
         Laya.Scene.close(GameConsts_1.PageName.PAGE_GAME_BOX2);
-        FLAnalytics_1["default"].sendUserEvent('UI点击_全屏卖量页2_继续游戏');
+        FLAnalytics_1["default"].sendUserEvent('UI点击_继续游戏');
     };
     return GameBoxPage2;
 }(FLBehavior_1["default"]));

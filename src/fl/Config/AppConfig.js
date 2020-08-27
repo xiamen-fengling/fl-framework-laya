@@ -26,13 +26,13 @@ var AppConfig = /** @class */ (function () {
         configurable: true
     });
     /** 游戏名称 */
-    AppConfig.GAME_NAME = '爆破先生';
+    AppConfig.GAME_NAME = '';
     /**
      * 版本号(版本号规则请参照https://www.cnblogs.com/scottx/p/5463447.html)
      * 主版本号.子版本号.阶段版本号.日期版本号
      */
     AppConfig.APP_VERSION = '1.0.0';
-    /** 用于过滤服务端返回的白名单列表 */
+    /** 白名单列表 */
     AppConfig.navigateToMiniProgramAppIdList = [];
     return AppConfig;
 }());

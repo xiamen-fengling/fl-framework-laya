@@ -23,7 +23,7 @@ var FLSystemEvent_1 = require("../../Core/Base/FLSystemEvent");
  * copyright (c) 2017-2019厦门风领科技有限公司
  * http://www.fenglinghudong.com/
  *
- * 微信胶囊菜单
+ * 退出登录按钮
  * xubinjiemac.local
  * 2019-9-21 16:53:54
  */

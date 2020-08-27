@@ -124,12 +124,6 @@ var FLWechatMiniGame = /** @class */ (function () {
                     else if (res.targetPagePath.indexOf('AppBrandProfileUI') !== -1 || res.targetPagePath.indexOf('NewWAProfileViewController') !== -1) {
                         // 进入关于小程序界面
                         FLSystemEvent_1["default"].emit(FLWechatMiniGame.EEventName.WECHAT_MINI_GAME_ABOUT, res);
-                        // 安全策略
-                        wx.exitMiniProgram({
-                            success: function () { },
-                            fail: function () { },
-                            complete: function () { }
-                        });
                     }
                 }
                 else if (res.mode === 'launchMiniProgram') {

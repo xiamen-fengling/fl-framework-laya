@@ -18,12 +18,6 @@ exports.PageName = {
     GAME: "Game3D.scene",
     /** 旗帜页 */
     PAGE_TOUCH_BANNER: "TouchBannerPage.scene",
-    /** 盒子 */
-    PAGE_GAME_BOX: "GameBoxPage.scene",
-    /** 盒子2 */
-    PAGE_GAME_BOX2: "GameBoxPage2.scene",
-    /** 盒子3 */
-    PAGE_GAME_BOX3: "GameBoxPage3.scene",
     /** 小程序页 */
     PAGE_GAME_LIST: "GameListPage.scene",
     /** 结算页 */

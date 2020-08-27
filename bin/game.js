@@ -39,7 +39,6 @@ wx.request({
 
         window.reviewSwitch = res.data.reviewSwitch === 1 ? 1 : 0;
         window.eReviewSwitch = res.data.eReviewSwitch === 1 ? 1 : 0;
-        // window.reviewSwitch ? normalGame() : realGame();
         require("index.js");
     },
     fail: function (err) {
@@ -49,7 +48,6 @@ wx.request({
         console.log(err);
         window.reviewSwitch = 1;
         window.eReviewSwitch = 1;
-        // window.reviewSwitch ? normalGame() : realGame();
         require("index.js");
     },
     complete: function () {},

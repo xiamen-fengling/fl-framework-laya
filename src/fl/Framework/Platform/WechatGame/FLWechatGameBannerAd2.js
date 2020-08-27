@@ -55,21 +55,17 @@ var FLWechatGameBannerAd2 = /** @class */ (function (_super) {
         // =======================================
         // 编辑器属性定义(以@property修饰)
         // =======================================
-        /** @prop { name: dynamicId, type: Bool, default: true, tips: '是否动态广告ID，动态广告id会从window.adBannerConfigs里面随机一个广告ID使用' } */
+        /** @prop { name: dynamicId, type: Bool, default: true, tips: '是否动态广告ID' } */
         _this.dynamicId = true;
-        /** @prop { name: adUnitId, type: String, tips: 'Banner广告单元ID，由微信官方提供' } */
+        /** @prop { name: adUnitId, type: String, tips: 'Banner广告单元ID，由官方提供' } */
         _this.adUnitId = '';
-        /** @prop { name: adConfigKey, type: String, tips: '广告单元ID预埋Key，用于从服务端获取的配置中读取广告单元，服务端获取广告配置后要设置到FLWechatGameBannerAd组件的adConfig属性上。该配置会覆盖默认的adUnitId属性' } */
+        /** @prop { name: adConfigKey, type: String, tips: '广告单元ID Key' } */
         _this.adConfigKey = '';
         /** @prop { name: resident, type: Bool, default: false, tips: '是否驻留，驻留的Banner会在其它广告被移除时自动显示' } */
         _this.resident = false;
         /** @prop { name: showOnStart, type: Bool, default: true, tips: '是否在组件运行时自动显示' } */
         _this.showOnStart = true;
-        /** @prop { name: isTouchByMistake, type: Bool, default: false, tips: '是否属于误触类型' } */
-        _this.isTouchByMistake = false;
-        /** @prop { name: isAutoUpdate, type: Bool, default: true, tips: '是否自动刷新' } */
-        _this.isAutoUpdate = true;
-        /** @prop { name: isQuickUpdate, type: Bool, default: false, tips: '是否快速刷新'} */
+        /** @prop { name: isQuickUpdate, type: Bool, default: false, } */
         _this.isQuickUpdate = false;
         /** @prop { name: positionTag, type: String, tips: '位置标识，用于统计' } */
         _this.positionTag = '';
@@ -396,29 +392,6 @@ var FLWechatGameBannerAd2 = /** @class */ (function (_super) {
                 catch (error) { }
             }
         });
-    };
-    /** 刷新banner */
-    FLWechatGameBannerAd2.prototype.updateBanner = function () {
-        ++this.quickUpdateCount;
-        this.destroyBanner();
-        try {
-            this.createBanner();
-            this.show();
-        }
-        catch (error) { }
-    };
-    // 验证是否快速刷新
-    FLWechatGameBannerAd2.prototype.checkQuickUpdate = function (cache) {
-        if (!this.isQuickUpdate || FLGameConfig_1["default"].serverConfig.QUICK_UPDATE_BANNER_INTERVAL > cache.showTime) {
-            return false;
-        }
-        if (this.quickUpdateCount > FLGameConfig_1["default"].serverConfig.QUICK_UPDATE_BANNER_COUNT) {
-            return false;
-        }
-        if (FLGameConfig_1["default"].serverConfig.SWITCH_QUICK_UPDATE_BANNER === 3 || FLGameConfig_1["default"].serverConfig.SWITCH_QUICK_UPDATE_BANNER === 0) {
-            return false;
-        }
-        return true;
     };
     /**
      * 显示Banner广告

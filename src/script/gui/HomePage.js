@@ -76,8 +76,8 @@ var HomePage = /** @class */ (function (_super) {
     };
     HomePage.prototype.onEnable = function () {
         // GameDataCenter.inPage = '首页';
-        FLAnalytics_1["default"].sendUserEvent('假退出按钮');
-        GameDataCenter_1["default"].prePositionTag = '假退出按钮';
+        FLAnalytics_1["default"].sendUserEvent('按钮');
+        GameDataCenter_1["default"].prePositionTag = '按钮';
         GameBoxPanel_1["default"].onCloseCallback = function () {
             Laya.Scene.open(GameConsts_1.PageName.PAGE_HOME);
         };
@@ -90,7 +90,7 @@ var HomePage = /** @class */ (function (_super) {
     HomePage.prototype.onOpenGameListPage = function () {
         GameBoxPanel_1["default"].onCloseCallback = function () { Laya.Scene.open(GameConsts_1.PageName.PAGE_HOME); };
         Laya.Scene.open(GameConsts_1.PageName.PAGE_GAME_LIST, true);
-        FLAnalytics_1["default"].sendUserEvent('UI点击_游戏首页_假退出按钮');
+        FLAnalytics_1["default"].sendUserEvent('UI点击_游戏首页_按钮');
     };
     HomePage.prototype.onTween = function () {
         var _this = this;
@@ -108,12 +108,12 @@ var HomePage = /** @class */ (function (_super) {
         GameBoxPanel_1["default"].onCloseCallback = function () { Laya.Scene.open(GameConsts_1.PageName.PAGE_HOME); };
         Laya.Scene.open(GameConsts_1.PageName.PAGE_GAME_BOX, true);
         GameDataCenter_1["default"].isGameEndIntoBoxPage = false;
-        FLAnalytics_1["default"].sendUserEvent('UI点击_游戏首页_更多好玩');
+        FLAnalytics_1["default"].sendUserEvent('UI点击_游戏首页');
     };
     HomePage.prototype.onClickMoreGame = function () {
         // console.log('UI点击_首页_互推墙');
         GameBoxPanel_1["default"].onCloseCallback = function () { Laya.Scene.open(GameConsts_1.PageName.PAGE_HOME); };
-        FLAnalytics_1["default"].sendUserEvent('UI点击_游戏首页_互推墙');
+        FLAnalytics_1["default"].sendUserEvent('UI点击_游戏首页');
     };
     /**添加3d角色小人 */
     HomePage.prototype.add3DRole = function () {

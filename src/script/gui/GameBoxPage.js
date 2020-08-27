@@ -33,7 +33,7 @@ var GameBoxPage = /** @class */ (function (_super) {
         var _this = this;
         FLAnalytics_1["default"].sendUserEvent("\u8FDB\u5165\u5168\u5C4F\u5356\u91CF\u9875_" + GameDataCenter_1["default"].prePositionTag);
         if (GameDataCenter_1["default"].isNewPlayer) {
-            FLAnalytics_1["default"].sendUserEvent('新用户_进入全屏卖量页');
+            FLAnalytics_1["default"].sendUserEvent('新用户_进入');
         }
         if (FLGameConfig_1["default"].serverConfig.SWITCH_SHOW_GAME_BOX_BANNER !== 3 || window.reviewSwitch !== 1) {
             this.owner.getChildByName('bannerNode').active = true;
@@ -49,7 +49,7 @@ var GameBoxPage = /** @class */ (function (_super) {
     GameBoxPage.prototype.onClose = function () {
         // Laya.Scene.close(PageName.PAGE_GAME_BOX);
         this.owner.close();
-        FLAnalytics_1["default"].sendUserEvent('UI点击_全屏卖量页_继续游戏');
+        FLAnalytics_1["default"].sendUserEvent('UI点击_继续游戏');
     };
     return GameBoxPage;
 }(FLBehavior_1["default"]));

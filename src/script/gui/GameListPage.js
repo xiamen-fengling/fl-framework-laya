@@ -32,7 +32,7 @@ var GameListPage = /** @class */ (function (_super) {
     };
     GameListPage.prototype.onClose = function () {
         Laya.Scene.close(GameConsts_1.PageName.PAGE_GAME_LIST);
-        FLAnalytics_1["default"].sendUserEvent('UI点击_小程序页_关闭按钮');
+        FLAnalytics_1["default"].sendUserEvent('UI点击_关闭按钮');
     };
     return GameListPage;
 }(FLBehavior_1["default"]));

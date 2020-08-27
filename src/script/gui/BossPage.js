@@ -25,9 +25,9 @@ var FLGameConfig_1 = require("../../fl/Config/FLGameConfig");
 var Game3D_1 = require("../Game3D/Game3D");
 var FLAudio_1 = require("../../fl/Framework/Core/Base/FLAudio");
 var FLGloable_1 = require("../common/FLGloable");
-var TouchBannerPage = /** @class */ (function (_super) {
-    __extends(TouchBannerPage, _super);
-    function TouchBannerPage() {
+var BossPage = /** @class */ (function (_super) {
+    __extends(BossPage, _super);
+    function BossPage() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         /** @prop {name: progressBar, type: Node} */
         _this.progressBar = null;
@@ -64,7 +64,7 @@ var TouchBannerPage = /** @class */ (function (_super) {
         _this.isClick = false;
         return _this;
     }
-    TouchBannerPage.prototype.onLoaded = function () {
+    BossPage.prototype.onLoaded = function () {
         var _this = this;
         var bg = new Laya.Sprite();
         var bgColorData;
@@ -101,7 +101,7 @@ var TouchBannerPage = /** @class */ (function (_super) {
         FLSystemEvent_1["default"].on(FLWechatMiniGame_1["default"].EEventName.WECHAT_MINI_GAME_TOUCH_BANNER_AD, this.onTouchBannerCallback, this);
         FLSystemEvent_1["default"].on('GOIN_3DSCENE', this.onGotoGame3d, this);
     };
-    TouchBannerPage.prototype.onLoadFinish = function (_scene) {
+    BossPage.prototype.onLoadFinish = function (_scene) {
         // Laya.Scene.open(PageName.PAGE_TOUCH_BANNER);
         this.scene3D = _scene;
         this.scene3D.zOrder = GameConsts_1.LayerName.UI_3D;
@@ -134,7 +134,7 @@ var TouchBannerPage = /** @class */ (function (_super) {
         FLSystemEvent_1["default"].on('FIRE_EFFECT', this.createEffect, this);
     };
     //复制出五个
-    TouchBannerPage.prototype.copyPlayer = function () {
+    BossPage.prototype.copyPlayer = function () {
         for (var index = 0; index < 5; index++) {
             var x = void 0, y = void 0, z = void 0;
             x = -6 + index * 3;
@@ -152,7 +152,7 @@ var TouchBannerPage = /** @class */ (function (_super) {
         }
     };
     //准备发射
-    TouchBannerPage.prototype.redeyFire = function () {
+    BossPage.prototype.redeyFire = function () {
         if (this.scene3D === null) {
             return;
         }
@@ -166,7 +166,7 @@ var TouchBannerPage = /** @class */ (function (_super) {
         }, 0.2);
     };
     //回收
-    TouchBannerPage.prototype.onRecovery = function () {
+    BossPage.prototype.onRecovery = function () {
         FLSystemEvent_1["default"].off('FIRE_EFFECT', this.createEffect, this);
         FLSystemEvent_1["default"].off('GOIN_3DSCENE', this.onGotoGame3d, this);
         this.unscheduleAllCallbacks();
@@ -191,7 +191,7 @@ var TouchBannerPage = /** @class */ (function (_super) {
         this._EffectObj = null;
         Laya.Resource.destroyUnusedResources();
     };
-    TouchBannerPage.prototype.createEffect = function (effectType, pos) {
+    BossPage.prototype.createEffect = function (effectType, pos) {
         if (!this._selfBoomEffect || !this._EffectObj) {
             return;
         }
@@ -207,26 +207,26 @@ var TouchBannerPage = /** @class */ (function (_super) {
         FLAudio_1.FLAudio.playSoundByPath('snd/BOMB3.mp3');
         FLWechatMiniGame_1["default"].vibrateLong();
     };
-    TouchBannerPage.prototype.onEnabled = function () {
+    BossPage.prototype.onEnabled = function () {
         this.banner = this.owner.getComponent(FLWechatGameBannerAd2_1["default"]);
         this.hitFLProgressBar.progress = 1;
         this.clickrate = 1;
         this.showBannerRatio = 0.5;
-        FLAnalytics_1["default"].sendUserEvent('进入误触游戏页');
+        FLAnalytics_1["default"].sendUserEvent('进入Boss游戏页');
         if (GameDataCenter_1["default"].isNewPlayer) {
-            FLAnalytics_1["default"].sendUserEvent('新用户_进入误触游戏页');
+            FLAnalytics_1["default"].sendUserEvent('新用户_进入Boss游戏页');
         }
     };
-    TouchBannerPage.prototype.onMouseDownHit = function () {
+    BossPage.prototype.onMouseDownHit = function () {
         this.btnHit.scale(1.2, 1.2, true);
     };
-    TouchBannerPage.prototype.onClickHit = function () {
+    BossPage.prototype.onClickHit = function () {
         var _this = this;
         if (!this.isClick) {
             this.isClick = true;
-            FLAnalytics_1["default"].sendUserEvent('UI点击_误触页_疯狂点击按钮');
+            FLAnalytics_1["default"].sendUserEvent('UI点击_Boss页_疯狂点击按钮');
         }
-        // FLAnalytics.sendUserEvent('UI点击_误触页_疯狂点击按钮');
+        // FLAnalytics.sendUserEvent('UI点击_Boss页_疯狂点击按钮');
         if (!this.hitFLProgressBar) {
             return;
         }
@@ -262,7 +262,7 @@ var TouchBannerPage = /** @class */ (function (_super) {
         }
     };
     //进度条变化
-    TouchBannerPage.prototype.changeProgress = function () {
+    BossPage.prototype.changeProgress = function () {
         if (!this.hitFLProgressBar) {
             return;
         }
@@ -272,15 +272,15 @@ var TouchBannerPage = /** @class */ (function (_super) {
         this.btnHit.scale(1.0, 1.0, true);
         this.hitFLProgressBar.progress -= 0.1;
     };
-    TouchBannerPage.prototype.onTweenTip1 = function () {
+    BossPage.prototype.onTweenTip1 = function () {
         Laya.Tween.clearAll(this.tip);
         Laya.Tween.to(this.tip, { scaleX: 1.1, scaleY: 1.1 }, 1000, Laya.Ease.linearNone, Laya.Handler.create(this, this.onTweenTip2));
     };
-    TouchBannerPage.prototype.onTweenTip2 = function () {
+    BossPage.prototype.onTweenTip2 = function () {
         Laya.Tween.clearAll(this.tip);
         Laya.Tween.to(this.tip, { scaleX: 1.0, scaleY: 1.0 }, 1000, Laya.Ease.linearNone, Laya.Handler.create(this, this.onTweenTip1));
     };
-    TouchBannerPage.prototype.onUpdate = function () {
+    BossPage.prototype.onUpdate = function () {
         // if (this.hitFLProgressBar.progress === 0) { return; }
         if (this.clickrate === 0) {
             return;
@@ -297,7 +297,7 @@ var TouchBannerPage = /** @class */ (function (_super) {
             FLWechatGameBannerAd2_1["default"].hideAllBannerAd();
         }
     };
-    TouchBannerPage.prototype.onTouchBannerCallback = function () {
+    BossPage.prototype.onTouchBannerCallback = function () {
         var _this = this;
         if (this.isTouchedBanner) {
             return;
@@ -316,9 +316,9 @@ var TouchBannerPage = /** @class */ (function (_super) {
     /**
      *
      * @param _isGetSpeedUp 是否获得奖励
-     * @param isTouchBanner 是否误触
+     * @param isTouchBanner 是否Boss
      */
-    TouchBannerPage.prototype.onEndToNextPage = function (_isGetSpeedUp, isTouchBanner) {
+    BossPage.prototype.onEndToNextPage = function (_isGetSpeedUp, isTouchBanner) {
         if (_isGetSpeedUp === void 0) { _isGetSpeedUp = true; }
         if (isTouchBanner === void 0) { isTouchBanner = false; }
         if (this.touchClose) {
@@ -344,11 +344,11 @@ var TouchBannerPage = /** @class */ (function (_super) {
         }
         this.isTouchBanner = isTouchBanner;
     };
-    TouchBannerPage.prototype.onDisable = function () {
+    BossPage.prototype.onDisable = function () {
         this.onRecovery();
     };
     /**显示黄色框 */
-    TouchBannerPage.prototype.showBgFrame = function () {
+    BossPage.prototype.showBgFrame = function () {
         var _this = this;
         Laya.Tween.clearAll(this.bgFrame);
         this.showBoosTitle();
@@ -359,7 +359,7 @@ var TouchBannerPage = /** @class */ (function (_super) {
         }));
     };
     /**出现白条 */
-    TouchBannerPage.prototype.showWhiteBar = function () {
+    BossPage.prototype.showWhiteBar = function () {
         var _this = this;
         Laya.Tween.clearAll(this.whiteBar1);
         Laya.Tween.to(this.whiteBar1, { x: 0 }, 500, Laya.Ease.linearNone);
@@ -370,7 +370,7 @@ var TouchBannerPage = /** @class */ (function (_super) {
         }), 4500);
     };
     /**出现boos标题 */
-    TouchBannerPage.prototype.showBoosTitle = function () {
+    BossPage.prototype.showBoosTitle = function () {
         var _this = this;
         Laya.Tween.clearAll(this.BossTitle);
         Laya.Tween.to(this.BossTitle, { y: 150 }, 800, Laya.Ease.elasticInOut, Laya.Handler.create(this, function () {
@@ -379,12 +379,11 @@ var TouchBannerPage = /** @class */ (function (_super) {
             }), 4500);
         }));
     };
-    /**显示进度与按钮 */
-    TouchBannerPage.prototype.showBtnAndPro = function () {
+    BossPage.prototype.showBtnAndPro = function () {
         this.progressBar.visible = true;
         this.btnHit.visible = true;
     };
-    TouchBannerPage.prototype.onGotoGame3d = function (touchBannerTag) {
+    BossPage.prototype.onGotoGame3d = function (touchBannerTag) {
         var _this = this;
         Laya.timer.clearAll(this);
         Laya.Scene.closeAll();
@@ -402,6 +401,6 @@ var TouchBannerPage = /** @class */ (function (_super) {
         FLSystemEvent_1["default"].on(GameConsts_1.EGameEventName.LOAD_SCENE3D_ENDED, callback, FLSystemEvent_1["default"]);
         Game3D_1["default"].openGame3D();
     };
-    return TouchBannerPage;
+    return BossPage;
 }(FLBehavior_1["default"]));
-exports["default"] = TouchBannerPage;
+exports["default"] = BossPage;

@@ -40,7 +40,7 @@ var FLGameConfig = /** @class */ (function () {
         // 计算间隔和偏移
         if ((window.gameCount - FLGameConfig.serverConfig["TOUCH_BANNER_OFFSET_" + tag]) % (FLGameConfig.serverConfig["TOUCH_BANNER_INTERVAL_" + tag] + 1) === 0) {
             ++window["TOUCH_BANNER_COUNT_" + tag];
-            return true;
+            return false;
         }
         else {
             return false;
@@ -54,29 +54,17 @@ var FLGameConfig = /** @class */ (function () {
         shareSwitch: 1,
         // 重置开关
         reviewSwitch: 1,
-        // 根据系统屏蔽
-        hideOnSystem: 'none',
         isEnabledWXSceneHide: 1,
         // 可观看视频的次数上限
         PLAY_VIDEO_MAX: 15,
         // 分享模式
         shareModel: 0,
-        // 分享领取奖励的次数上限
+        // 分享次数上限
         SHARE_MAX: 30,
-        // 分享成功的判定时间
+        // 分享判定时间
         shareSuccessDelayTime: 2.6,
-        // 切换轮播状态
-        mjSuccToChageSwitch: 1,
         // 拉取广告次数上限
         BANNER_LOAD_MAX: 15,
-        // Banner自动刷新间隔
-        BANNER_UPDATE_INTERVAL: 10,
-        // 是否启用快速刷新Banner
-        SWITCH_QUICK_UPDATE_BANNER: 15,
-        // 快速刷新Banner次数
-        QUICK_UPDATE_BANNER_COUNT: 15,
-        // 快速刷新Banner时间间隔
-        QUICK_UPDATE_BANNER_INTERVAL: 15,
         // 是否自动弹出跳转
         GAMEBOX_AUTO_SHOW_GOTO: 3,
         // 开关
@@ -109,17 +97,17 @@ var FLGameConfig = /** @class */ (function () {
         LEFT_BANNER_UPDATE_COUNT: 3,
         //结算页显示领取炸弹
         SWITCH_SHOW_NEWBOX_BTN: 3,
-        //全屏卖量2显示继续游戏时间
+        // 宝箱2显示继续游戏时间
         SHOW_BOX2_TIME: 3,
-        //全屏卖量3显示继续游戏时间
+        // 宝箱3显示继续游戏时间
         GAMEBOX_BTN_SHOW_TIME: 3,
-        //盒⼦⻚3是否显示的开关
+        // 宝箱3是否显示的开关
         GAMEBOX_SWITCH: 2,
-        //盒⼦⻚3是否显示的开关
+        // 宝箱3是否显示的开关
         SWITCH_GAMEBOX_SHOW: 3,
-        //盒⼦⻚
+        // 宝箱
         SWITCH_BOX_PANEL: 3,
-        //卖量页开关
+        // 宝箱开关
         SWITCH_CHANGE_BOX: 1
     };
     return FLGameConfig;
